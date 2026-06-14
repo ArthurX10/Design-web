@@ -1,0 +1,135 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - Auditoria do Sistema | Lidy Variedades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar-wrapper">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Lidy Variedades</a>
+            <div class="navbar-actions">
+                <span class="admin-badge">Painel Administrativo</span>
+                <a href="login.html" class="admin-logout-btn" style="text-decoration: none;"><i data-lucide="log-out" class="logout-icon"></i> Sair</a>
+            </div>
+        </div>
+    </nav>
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div>
+                <div class="admin-sidebar-user">
+                    <div class="admin-sidebar-avatar">L</div>
+                    <div>
+                        <div class="admin-sidebar-name">Lidy Variedades</div>
+                        <div class="admin-sidebar-role">Painel Admin</div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <a href="admin-produtos.html" class="admin-nav-item"><i data-lucide="package" style="width: 18px; height: 18px;"></i> Produtos</a>
+                    <a href="admin-configuracoes.html" class="admin-nav-item"><i data-lucide="settings" style="width: 18px; height: 18px;"></i> Configurações</a>
+                    <a href="admin-auditoria.html" class="admin-nav-item active"><i data-lucide="clipboard-list" style="width: 18px; height: 18px;"></i> Auditoria</a>
+                </div>
+            </div>
+            <div>
+                <a href="index.html" class="admin-nav-item"><i data-lucide="home" style="width: 18px; height: 18px;"></i> Ver Loja</a>
+            </div>
+        </aside>
+        <main class="admin-main fade-in">
+            <div class="mb-8 flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <h1 class="text-3xl text-nuit font-display italic">Auditoria do Sistema</h1>
+                    <p class="text-gray-500 text-sm">Acompanhe as alterações feitas no catálogo e configurações</p>
+                </div>
+                <button onclick="alert('Funcionalidade desativada no modo estático!')" class="tab-btn text-xs font-semibold px-4 py-2 border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300 flex items-center gap-1.5" style="border-radius:9999px;">
+                    <i data-lucide="trash" style="width: 14px; height: 14px;"></i> Limpar Logs
+                </button>
+            </div>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Data Hora</th>
+                            <th style="width: 25%;">Usuário</th>
+                            <th style="width: 15%;">Ação</th>
+                            <th style="width: 40%;">Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="audit-table-body">
+                        <tr>
+                            <td class="font-medium text-gray-500 text-xs">13/06/2026 10:00</td>
+                            <td class="font-semibold text-nuit flex items-center gap-1.5">
+                                <i data-lucide="user" style="width: 14px; height: 14px; color: var(--gray-400);"></i>
+                                admin@lidy.com
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">Criação</span>
+                            </td>
+                            <td class="text-gray-600 font-medium flex items-center gap-2">
+                                <i data-lucide="info" style="width:14px; height:14px; color:var(--rosa);" class="flex-shrink-0"></i>
+                                <span>Criou o produto: Coffee Woman Duo Desodorante Colônia 100ml</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium text-gray-500 text-xs">13/06/2026 09:45</td>
+                            <td class="font-semibold text-nuit flex items-center gap-1.5">
+                                <i data-lucide="user" style="width: 14px; height: 14px; color: var(--gray-400);"></i>
+                                admin@lidy.com
+                            </td>
+                            <td>
+                                <span class="status-badge estoque-baixo">Edição</span>
+                            </td>
+                            <td class="text-gray-600 font-medium flex items-center gap-2">
+                                <i data-lucide="info" style="width:14px; height:14px; color:var(--rosa);" class="flex-shrink-0"></i>
+                                <span>Editou as configurações gerais (WhatsApp de atendimento)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium text-gray-500 text-xs">12/06/2026 18:22</td>
+                            <td class="font-semibold text-nuit flex items-center gap-1.5">
+                                <i data-lucide="user" style="width: 14px; height: 14px; color: var(--gray-400);"></i>
+                                admin@lidy.com
+                            </td>
+                            <td>
+                                <span class="status-badge estoque-baixo">Edição</span>
+                            </td>
+                            <td class="text-gray-600 font-medium flex items-center gap-2">
+                                <i data-lucide="info" style="width:14px; height:14px; color:var(--rosa);" class="flex-shrink-0"></i>
+                                <span>Editou o produto: Creme Antissinais Chronos 30+ Natura 40g (Estoque: 10)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium text-gray-500 text-xs">12/06/2026 14:15</td>
+                            <td class="font-semibold text-nuit flex items-center gap-1.5">
+                                <i data-lucide="user" style="width: 14px; height: 14px; color: var(--gray-400);"></i>
+                                admin@lidy.com
+                            </td>
+                            <td>
+                                <span class="status-badge inativo">Exclusão</span>
+                            </td>
+                            <td class="text-gray-600 font-medium flex items-center gap-2">
+                                <i data-lucide="info" style="width:14px; height:14px; color:var(--rosa);" class="flex-shrink-0"></i>
+                                <span>Excluiu o produto: Loção Hidratante Antiga (ID: 99)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+
+</html>

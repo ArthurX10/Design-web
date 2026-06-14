@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto | Lidy Variedades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <input type="checkbox" id="close-banner-toggle" class="sr-only">
+    <input type="checkbox" id="mobile-menu-toggle" class="sr-only">
+    <div id="banner-aviso" class="banner-aviso">
+        <div class="container" style="padding-right: 2rem;">
+            Frete grátis acima de R$150!
+        </div>
+        <label for="close-banner-toggle" class="banner-close cursor-pointer">
+            <i data-lucide="x"></i>
+        </label>
+    </div>
+    <nav class="navbar-wrapper">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Lidy Variedades</a>
+            <div class="navbar-menu">
+                <a href="cosmeticos.html" class="nav-link">Cosméticos</a>
+                <a href="perfumes.html" class="nav-link">Perfumes</a>
+                <a href="lingeries.html" class="nav-link">Lingeries</a>
+                <a href="promocoes.html" class="nav-link">Promoções</a>
+            </div>
+            <div class="navbar-actions">
+                <form action="perfumes.html" method="GET" class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" name="buscar" placeholder="Buscar produtos..." class="search-input">
+                </form>
+                <a href="https://wa.me/5588997703960?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Lidy%20Variedades."
+                    target="_blank" class="whatsapp-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+                </a>
+                <a href="perfil.html" class="profile-btn" title="Minha Conta / Perfil"><i data-lucide="user"></i></a>
+                <label for="mobile-menu-toggle" class="menu-toggle-btn">
+                    <i data-lucide="menu"></i>
+                </label>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-title">Menu</div>
+            <label for="mobile-menu-toggle" class="mobile-menu-close">
+                <i data-lucide="x"></i>
+            </label>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="cosmeticos.html" class="mobile-menu-link">Cosméticos</a>
+            <a href="perfumes.html" class="mobile-menu-link">Perfumes</a>
+            <a href="lingeries.html" class="mobile-menu-link">Lingeries</a>
+            <a href="promocoes.html" class="mobile-menu-link">Promoções</a>
+            <a href="contato.html" class="mobile-menu-link">Contato</a>
+            <a href="perfil.html" class="mobile-menu-link">Meu Perfil</a>
+            <a href="login.html" class="btn mobile-menu-enter-btn">Entrar</a>
+        </div>
+    </div>
+    <main class="py-12 bg-pagina">
+        <div class="container">
+            <div class="mb-8">
+                <a href="javascript:history.back()" class="back-link"><i data-lucide="chevron-left" style="width:16px;"></i> Voltar para o Catálogo</a>
+            </div>
+            <div id="product-details" style="min-height: 400px;">
+                <div class="product-detail-grid">
+                    <div class="product-detail-image-wrap">
+                        <img src="img/cat-perfumes.png" alt="Coffee Woman Duo Desodorante Colônia 100ml">
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <p class="text-rosa font-bold uppercase tracking-widest text-xs mb-2">perfumes</p>
+                        <h1 class="product-detail-title">Coffee Woman Duo Desodorante Colônia 100ml</h1>
+                        <div class="mb-6">
+                            <p class="text-gray-400 text-sm line-through">R$ 280,99</p>
+                            <p class="text-rosa font-bold text-4xl">R$ 258,99</p>
+                        </div>
+                        <div class="installment-card mb-6">
+                            <i data-lucide="credit-card" style="width: 18px; height: 18px; color: var(--rosa);"></i>
+                            <span><strong>PARCELAMENTO:</strong> Ou até 3x de R$ 86,33 sem juros no cartão.</span>
+                        </div>
+                        <p class="product-detail-desc">
+                            Fragrância marcante e envolvente que combina o frescor do café com a delicadeza de notas
+                            florais e frutadas.
+                        </p>
+                        <div class="flex flex-col gap-4">
+                            <a href="https://wa.me/5588997703960?text=Ol%C3%A1!%20Tenho%20interesse%20no%20produto%3A%20Coffee%20Woman%20Duo%20Desodorante%20Col%C3%B4nia%20100ml"
+                                target="_blank" class="btn btn-whatsapp-product">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                                </svg> Solicitar via WhatsApp
+                            </a>
+                            <div class="info-badge-container">
+                                <div class="info-badge">
+                                    <i data-lucide="truck" style="width: 18px; height: 18px; color: var(--rosa);"></i>
+                                    <span>Entrega Rápida</span>
+                                </div>
+                                <div class="info-badge">
+                                    <i data-lucide="shield-check"
+                                        style="width: 18px; height: 18px; color: var(--rosa);"></i>
+                                    <span>Compra segura</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 border-t border-gray-200 pt-16">
+                <h3 class="section-heading">Quem viu este, também gostou</h3>
+                <div id="grid-recomendados" class="products-grid products-grid--4">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="img/hero-banner.png" alt="Essencial Elixir Deo Parfum Feminino 100ml">
+                            <span class="discount-badge">-11%</span>
+                        </div>
+                        <div class="product-card-body">
+                            <h4 class="product-card-name" title="Essencial Elixir Deo Parfum Feminino 100ml">Essencial
+                                Elixir 100ml</h4>
+                            <p class="product-card-desc">O Essencial Elixir da Natura é um deo parfum marcante e
+                                sofisticado, ideal para noites ou dias mais frios.</p>
+                            <div class="product-card-prices">
+                                <span class="product-card-price-original">R$ 290,99</span>
+                                <span class="product-card-price">R$ 258,99</span>
+                            </div>
+                            <a href="detalhes.html" class="btn">Comprar Produto</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="img/cat-perfumes.png" alt="Zaad Santal Eau de Parfum 95ml">
+                            <span class="discount-badge">-10%</span>
+                        </div>
+                        <div class="product-card-body">
+                            <h4 class="product-card-name" title="Zaad Santal Eau de Parfum 95ml">Zaad Santal Eau de
+                                Parfum 95ml</h4>
+                            <p class="product-card-desc">Fragrância sofisticada que traz o calor do sândalo combinado
+                                com notas especiadas. Para homens marcantes e clássicos.</p>
+                            <div class="product-card-prices">
+                                <span class="product-card-price-original">R$ 310,00</span>
+                                <span class="product-card-price">R$ 279,00</span>
+                            </div>
+                            <a href="detalhes.html" class="btn">Comprar Produto</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="img/cat-perfumes.png" alt="Lily Absolu Eau de Parfum 75ml">
+                        </div>
+                        <div class="product-card-body">
+                            <h4 class="product-card-name" title="Lily Absolu Eau de Parfum 75ml">Lily Absolu Eau de
+                                Parfum 75ml</h4>
+                            <p class="product-card-desc">Fragrância marcante de lírios associada ao toque do óleo
+                                essencial de lírios. Extrema fixação e elegância feminina.</p>
+                            <div class="product-card-prices">
+                                <span class="product-card-price">R$ 299,90</span>
+                            </div>
+                            <a href="detalhes.html" class="btn">Comprar Produto</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="img/cat-perfumes.png" alt="Desodorante Masculino Malbec Boticário 100ml">
+                            <span class="discount-badge">-10%</span>
+                        </div>
+                        <div class="product-card-body">
+                            <h4 class="product-card-name" title="Desodorante Masculino Malbec Boticário 100ml">Malbec
+                                Boticário 100ml</h4>
+                            <p class="product-card-desc">Fragrância amadeirada inconfundível inspirada no processo de
+                                fabricação do vinho. O perfume masculino mais vendido do Brasil.</p>
+                            <div class="product-card-prices">
+                                <span class="product-card-price-original">R$ 199,90</span>
+                                <span class="product-card-price">R$ 179,90</span>
+                            </div>
+                            <a href="detalhes.html" class="btn">Comprar Produto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column footer-brand">
+                <a href="index.html" class="footer-logo">Lidy Variedades</a>
+                <p class="footer-desc">
+                    Sua loja favorita de cosméticos, perfumes e lingeries em Guaraciaba do Norte e região. Realce sua
+                    beleza com os melhores produtos.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/_lidy.variedades/" target="_blank" class="social-icon"><i
+                            data-lucide="instagram"></i></a>
+                    <a href="https://wa.me/5588997703960?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Lidy%20Variedades."
+                        target="_blank" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Fale Conosco</h4>
+                <div class="footer-contacts">
+                    <div class="contact-item">
+                        <i data-lucide="map-pin" class="contact-icon"></i>
+                        <span>Sitio Cruz das Almas, Zona Rural<br>Guaraciaba do Norte - CE</span>
+                    </div>
+                    <div class="contact-item contact-item-center">
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <span class="phone-text-display">(88) 99770-3960</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="clock" class="contact-icon"></i>
+                        <span>Segunda à Sexta: 08h às 18h<br>Sábado: 08h às 13h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Categorias</h4>
+                <div class="footer-links">
+                    <a href="cosmeticos.html" class="footer-link">Cosméticos</a>
+                    <a href="lingeries.html" class="footer-link">Lingeries</a>
+                    <a href="contato.html" class="footer-link">Onde Estamos</a>
+                    <a href="perfumes.html" class="footer-link">Perfumes</a>
+                    <a href="promocoes.html" class="footer-link">Promoções</a>
+                    <a href="perfil.html" class="footer-link">Meu Perfil</a>
+                    <a href="login.html" class="footer-link">Acesso Restrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 Lidy Variedades. Todos os direitos reservados. Desenvolvido com ❤️ para você.</p>
+        </div>
+    </footer>
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+
+</html>
