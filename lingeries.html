@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Lingeries | Lidy Variedades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <input type="checkbox" id="close-banner-toggle" class="sr-only">
+    <input type="checkbox" id="mobile-menu-toggle" class="sr-only">
+    <div id="banner-aviso" class="banner-aviso">
+        <div class="container" style="padding-right: 2rem;">
+            Frete grátis acima de R$150!
+        </div>
+        <label for="close-banner-toggle" class="banner-close cursor-pointer">
+            <i data-lucide="x"></i>
+        </label>
+    </div>
+    <nav class="navbar-wrapper">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Lidy Variedades</a>
+            <div class="navbar-menu">
+                <a href="cosmeticos.html" class="nav-link">Cosméticos</a>
+                <a href="perfumes.html" class="nav-link">Perfumes</a>
+                <a href="lingeries.html" class="nav-link active">Lingeries</a>
+                <a href="promocoes.html" class="nav-link">Promoções</a>
+            </div>
+            <div class="navbar-actions">
+                <form action="perfumes.html" method="GET" class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" name="buscar" placeholder="Buscar produtos..." class="search-input">
+                </form>
+                <a href="https://wa.me/5588997703960?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Lidy%20Variedades."
+                    target="_blank" class="whatsapp-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+                </a>
+                <a href="perfil.html" class="profile-btn" title="Minha Conta / Perfil"><i data-lucide="user"></i></a>
+                <label for="mobile-menu-toggle" class="menu-toggle-btn">
+                    <i data-lucide="menu"></i>
+                </label>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-title">Menu</div>
+            <label for="mobile-menu-toggle" class="mobile-menu-close">
+                <i data-lucide="x"></i>
+            </label>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="cosmeticos.html" class="mobile-menu-link">Cosméticos</a>
+            <a href="perfumes.html" class="mobile-menu-link">Perfumes</a>
+            <a href="lingeries.html" class="mobile-menu-link">Lingeries</a>
+            <a href="promocoes.html" class="mobile-menu-link">Promoções</a>
+            <a href="contato.html" class="mobile-menu-link">Contato</a>
+            <a href="perfil.html" class="mobile-menu-link">Meu Perfil</a>
+            <a href="login.html" class="btn mobile-menu-enter-btn">Entrar</a>
+        </div>
+    </div>
+    <main class="page-main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                <span>Lingeries</span>
+            </div>
+            <div class="page-title-block">
+                <h1 class="page-title">Lingeries</h1>
+                <p class="page-subtitle">Conforto e elegância para todos os momentos.</p>
+                <div class="page-title-divider"></div>
+            </div>
+            <div class="category-layout">
+                <aside class="filter-sidebar">
+                    <h2 class="filter-heading">
+                        <i data-lucide="sliders-horizontal" style="width: 18px; height: 18px;"></i> Filtrar por
+                    </h2>
+                    <div class="filter-section">
+                        <h3 class="filter-title">Gênero</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-masc" value="Masculino"> Masculino
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-fem" value="Feminino"> Feminino
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-uni" value="Unissex"> Unissex
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3 class="filter-title">Tipo</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-imp" value="Importado"> Importado
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-nac" value="Nacional"> Nacional
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3 class="filter-title">Faixa de Preço</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-p1" value="ate100"> Até R$100
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-p2" value="100a200"> R$100 a R$200
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-p3" value="200a500"> R$200 a R$500
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-p4" value="acima500"> Acima de R$500
+                            </label>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3 class="filter-title">Marca</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="chk-lidy" value="Lidy Lingerie"> Lidy Lingerie
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+                <div>
+                    <div class="listing-header">
+                        <p class="listing-count">
+                            <span id="products-count" class="listing-count-number">2</span> produtos encontrados
+                        </p>
+                        <div class="listing-sort">
+                            <label for="sort-select" class="listing-sort-label">Ordenar por:</label>
+                            <select id="sort-select" class="form-control"
+                                style="width: auto; padding: 0.375rem 1.75rem 0.375rem 0.75rem;">
+                                <option value="mais_vendidos">Mais Vendidos</option>
+                                <option value="preco_asc">Menor Preço</option>
+                                <option value="preco_desc">Maior Preço</option>
+                                <option value="nome_asc">Nome A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="grid-lingeries" class="products-grid">
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="img/cat-lingeries.png" alt="Conjunto Rendado Marsala">
+                                <span class="discount-badge">-15%</span>
+                            </div>
+                            <div class="product-card-body">
+                                <h4 class="product-card-name" title="Conjunto Rendado Marsala">Conjunto Rendado Marsala
+                                </h4>
+                                <p class="product-card-desc">Confeccionado em renda francesa antialérgica de alto
+                                    padrão.</p>
+                                <div class="product-card-prices">
+                                    <span class="product-card-price-original">R$ 129,90</span>
+                                    <span class="product-card-price">R$ 109,90</span>
+                                </div>
+                                <a href="detalhes.html?id=conjunto-marsala" class="btn">Comprar Produto</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="img/cat-lingeries.png" alt="Body Rendado Manga Longa">
+                                <span class="discount-badge">-12%</span>
+                            </div>
+                            <div class="product-card-body">
+                                <h4 class="product-card-name" title="Body Rendado Manga Longa">Body Rendado Manga Longa
+                                </h4>
+                                <p class="product-card-desc">Lindo body em renda com transparência elegante nas mangas.
+                                </p>
+                                <div class="product-card-prices">
+                                    <span class="product-card-price-original">R$ 159,90</span>
+                                    <span class="product-card-price">R$ 139,90</span>
+                                </div>
+                                <a href="detalhes.html?id=body-rendado" class="btn">Comprar Produto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column footer-brand">
+                <a href="index.html" class="footer-logo">Lidy Variedades</a>
+                <p class="footer-desc">
+                    Sua loja favorita de cosméticos, perfumes e lingeries em Guaraciaba do Norte e região. Realce sua
+                    beleza com os melhores produtos.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/_lidy.variedades/" target="_blank" class="social-icon"><i
+                            data-lucide="instagram"></i></a>
+                    <a href="https://wa.me/5588997703960?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Lidy%20Variedades."
+                        target="_blank" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Fale Conosco</h4>
+                <div class="footer-contacts">
+                    <div class="contact-item">
+                        <i data-lucide="map-pin" class="contact-icon"></i>
+                        <span>Sitio Cruz das Almas, Zona Rural<br>Guaraciaba do Norte - CE</span>
+                    </div>
+                    <div class="contact-item contact-item-center">
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <span class="phone-text-display">(88) 99770-3960</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="clock" class="contact-icon"></i>
+                        <span>Segunda à Sexta: 08h às 18h<br>Sábado: 08h às 13h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Categorias</h4>
+                <div class="footer-links">
+                    <a href="cosmeticos.html" class="footer-link">Cosméticos</a>
+                    <a href="lingeries.html" class="footer-link">Lingeries</a>
+                    <a href="contato.html" class="footer-link">Onde Estamos</a>
+                    <a href="perfumes.html" class="footer-link">Perfumes</a>
+                    <a href="promocoes.html" class="footer-link">Promoções</a>
+                    <a href="perfil.html" class="footer-link">Meu Perfil</a>
+                    <a href="login.html" class="footer-link">Acesso Restrito</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 Lidy Variedades. Todos os direitos reservados. Desenvolvido com ❤️ para você.</p>
+        </div>
+    </footer>
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+
+</html>

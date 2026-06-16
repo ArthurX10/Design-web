@@ -1,0 +1,900 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Painel Admin - Gerenciamento de Produtos | Lidy Variedades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <input type="checkbox" id="product-modal-toggle" class="sr-only" />
+    <nav class="navbar-wrapper">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Lidy Variedades</a>
+            <div class="navbar-actions">
+                <span class="admin-badge">Painel Administrativo</span>
+                <a href="login.html" class="admin-logout-btn" style="text-decoration: none"><i data-lucide="log-out" class="logout-icon"></i> Sair</a>
+            </div>
+        </div>
+    </nav>
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div>
+                <div class="admin-sidebar-user">
+                    <div class="admin-sidebar-avatar">L</div>
+                    <div>
+                        <div class="admin-sidebar-name">
+                            Lidy Variedades
+                        </div>
+                        <div class="admin-sidebar-role">Painel Admin</div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <a href="admin-produtos.html" class="admin-nav-item active">
+                        <i data-lucide="package" style="width: 18px; height: 18px"></i>
+                        Produtos
+                    </a>
+                    <a href="admin-configuracoes.html" class="admin-nav-item">
+                        <i data-lucide="settings" style="width: 18px; height: 18px"></i>
+                        Configurações
+                    </a>
+                    <a href="admin-auditoria.html" class="admin-nav-item">
+                        <i data-lucide="clipboard-list" style="width: 18px; height: 18px"></i>
+                        Auditoria
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a href="index.html" class="admin-nav-item">
+                    <i data-lucide="home" style="width: 18px; height: 18px"></i>
+                    Ver Loja
+                </a>
+            </div>
+        </aside>
+        <main class="admin-main fade-in">
+            <div class="mb-8">
+                <div>
+                    <h1 class="text-3xl text-nuit font-display italic">Gerenciamento de Produtos</h1>
+                    <p class="text-gray-500 text-sm">Organize seu catálogo e destaques</p>
+                </div>
+            </div>
+            <div class="admin-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="
+                                background-color: var(--rosa-claro);
+                                color: var(--rosa);
+                            ">
+                        <i data-lucide="box" style="width: 24px; height: 24px"></i>
+                    </div>
+                    <div class="stat-card-info">
+                        <h3 id="stat-total">12</h3>
+                        <p>Total de Produtos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background-color: #dcfce7; color: #15803d">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px"></i>
+                    </div>
+                    <div class="stat-card-info">
+                        <h3 id="stat-ativos">12</h3>
+                        <p>Ativos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background-color: #fee2e2; color: #b91c1c">
+                        <i data-lucide="x-circle" style="width: 24px; height: 24px"></i>
+                    </div>
+                    <div class="stat-card-info">
+                        <h3 id="stat-inativos">0</h3>
+                        <p>Inativos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background-color: #fef9c3; color: #a16207">
+                        <i data-lucide="alert-triangle" style="width: 24px; height: 24px"></i>
+                    </div>
+                    <div class="stat-card-info">
+                        <h3 id="stat-alerta">2</h3>
+                        <p>Estoque baixo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-borda mb-6 flex gap-4 items-center">
+                <div class="relative flex-1">
+                    <i data-lucide="search" class="search-icon" style="left: 1rem"></i>
+                    <input type="text" id="admin-search-input" placeholder="Buscar por Nome ou Categoria..." class="form-control" style="padding-left: 2.75rem" />
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Preço</th>
+                            <th>Status</th>
+                            <th>Estoque</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body">
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/coffee-woman.jpg" alt="Coffee Woman Duo Desodorante Colônia 100ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Coffee Woman Duo Desodorante Colônia 100ml">
+                                            Coffee Woman Duo Desodorante
+                                            Colônia 100ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Fragrância marcante e envolvente
+                                            que combina o frescor do café
+                                            com a delicadeza de notas
+                                            florais e frutadas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 280,99
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 258,99
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">28</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/essencial-elixir.jpg" alt="Essencial Elixir Deo Parfum Feminino 100ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Essencial Elixir Deo Parfum Feminino 100ml">
+                                            Essencial Elixir Deo Parfum
+                                            Feminino 100ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            O Essencial Elixir da Natura é
+                                            um deo parfum marcante e
+                                            sofisticado, ideal para noites
+                                            ou dias mais frios.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 290,99
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 258,99
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">28</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/shampoo-lumina.webp" alt="Shampoo Lumina Cabelos Secos Natura 300ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Shampoo Lumina Cabelos Secos Natura 300ml">
+                                            Shampoo Lumina Cabelos Secos
+                                            Natura 300ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Nutrição profunda e selagem dos
+                                            fios para cabelos secos e
+                                            quebradiços. Hidratação e brilho
+                                            intenso.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">cosmeticos</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 45,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 39,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">15</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/creme-chronos.jpg" alt="Creme Antissinais Chronos 30+ Natura 40g" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Creme Antissinais Chronos 30+ Natura 40g">
+                                            Creme Antissinais Chronos 30+
+                                            Natura 40g
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Reduz rugas de expressão,
+                                            regenera a pele e devolve a
+                                            firmeza e radiância natural do
+                                            rosto.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">cosmeticos</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 149,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 119,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">10</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/zaad-santal.jpg" alt="Zaad Santal Eau de Parfum 95ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Zaad Santal Eau de Parfum 95ml">
+                                            Zaad Santal Eau de Parfum 95ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Fragrância sofisticada que traz
+                                            o calor do sândalo combinado com
+                                            notas especiadas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 310,00
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 279,00
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">5</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/lily-absolute.png" alt="Lily Absolu Eau de Parfum 75ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Lily Absolu Eau de Parfum 75ml">
+                                            Lily Absolu Eau de Parfum 75ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Fragrância marcante de lírios
+                                            associada ao toque do óleo
+                                            essencial de lírios. Extrema
+                                            fixação.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="font-medium">R$ 299,90</div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">12</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/cat-lingeries.png" alt="Conjunto Rendado Luxo Marsala" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Conjunto Rendado Luxo Marsala">
+                                            Conjunto Rendado Luxo Marsala
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Conjunto de lingerie
+                                            confeccionado em renda
+                                            antialérgica francesa. Sutiã com
+                                            aro e calcinha fio dental.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">lingeries</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 129,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 109,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">8</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/cat-lingeries.png" alt="Body Rendado Manga Longa Preto" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Body Rendado Manga Longa Preto">
+                                            Body Rendado Manga Longa Preto
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Lindo body em renda com
+                                            transparência elegante nas
+                                            mangas e decote profundo.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">lingeries</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 159,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 139,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge estoque-baixo">
+                                    <span class="status-dot estoque-baixo"></span>
+                                    Estoque Baixo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium text-red-600 font-bold">4</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/good-girl.jpg" alt="Perfume Importado Good Girl Eau de Parfum 80ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Perfume Importado Good Girl Eau de Parfum 80ml">
+                                            Perfume Importado Good Girl 80ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Fragrância importada oriental
+                                            floral, inspirada na dualidade
+                                            da mulher moderna.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 689,00
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 620,00
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge estoque-baixo">
+                                    <span class="status-dot estoque-baixo"></span>
+                                    Estoque Baixo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium text-red-600 font-bold">3</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/locao-tododia.jpg" alt="Loção Hidratante Natura Tododia Cereja e Avelã 400ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Loção Hidratante Natura Tododia Cereja e Avelã 400ml">
+                                            Loção Hidratante Natura Tododia
+                                            Cereja e Avelã 400ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Nutrição prebiótica que se
+                                            adapta às necessidades da sua
+                                            pele. Fragrância adocicada.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">cosmeticos</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 67,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 54,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">20</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/malbec.jpg" alt="Desodorante Masculino Malbec Boticário 100ml" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Desodorante Masculino Malbec Boticário 100ml">
+                                            Desodorante Masculino Malbec
+                                            Boticário 100ml
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Fragrância amadeirada
+                                            inconfundível inspirada no
+                                            processo de fabricação do vinho.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">perfumes</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 199,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 179,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">14</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-3">
+                                    <img src="img/batom-chronos.jpg" alt="Batom Matte Chronos Natura 3,5g" class="w-10 h-10 object-contain bg-gray-50 rounded-lg p-1" />
+                                    <div>
+                                        <div class="font-bold text-nuit line-clamp-1" style="max-width: 250px" title="Batom Matte Chronos Natura 3,5g">
+                                            Batom Matte Chronos Natura 3,5g
+                                        </div>
+                                        <div class="text-xs text-gray-500 line-clamp-1" style="max-width: 250px">
+                                            Alta cobertura com efeito matte
+                                            aveludado. Contém ativos
+                                            dermatológicos que tratam os
+                                            lábios.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-xs uppercase bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">cosmeticos</span>
+                            </td>
+                            <td>
+                                <div class="text-xs text-gray-400 line-through">
+                                    R$ 59,90
+                                </div>
+                                <div class="text-rosa font-bold">
+                                    R$ 49,90
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge ativo">
+                                    <span class="status-dot ativo"></span>
+                                    Ativo
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-medium">30</span>
+                            </td>
+                            <td>
+                                <div class="flex items-center gap-1">
+                                    <label for="product-modal-toggle" class="action-btn edit cursor-pointer" title="Editar"><i data-lucide="edit-3" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i></label>
+                                    <button class="action-btn delete" onclick="
+                                                alert(
+                                                    'Funcionalidade desativada no modo estático!',
+                                                )
+                                            " title="Excluir">
+                                        <i data-lucide="trash-2" style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                "></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <label for="product-modal-toggle" class="btn admin-fab flex items-center gap-2 rounded-full font-bold uppercase tracking-wider text-sm cursor-pointer">
+        <i data-lucide="plus" style="width: 18px; height: 18px"></i>
+        Adicionar Produto
+    </label>
+    <div id="product-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Novo Produto</h3>
+                <label for="product-modal-toggle" class="text-gray-400 hover:text-nuit p-1 cursor-pointer"><i data-lucide="x"></i></label>
+            </div>
+            <form id="product-form" action="admin-produtos.html" method="GET">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>URL da Imagem do Produto</label>
+                        <input type="text" id="form-image" class="form-control" placeholder="Ex: img/cat-perfumes.png" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nome do Produto</label>
+                        <input type="text" id="form-name" class="form-control" placeholder="Ex: Creme Natura Tododia" />
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição do Produto</label>
+                        <textarea id="form-description" class="form-control" style="height: 80px" placeholder="Detalhes do produto..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preço (R$)</label>
+                            <input type="number" step="0.01" id="form-price" class="form-control" placeholder="0,00" />
+                        </div>
+                        <div class="form-group">
+                            <label>Prioridade</label>
+                            <input type="number" id="form-priority" class="form-control" placeholder="10" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço na Promoção (Deixe em branco se não
+                            houver)</label>
+                        <input type="number" step="0.01" id="form-promo-price" class="form-control" placeholder="0,00" />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Categoria</label>
+                            <select id="form-category" class="form-control">
+                                <option value="perfumes">Perfumes</option>
+                                <option value="cosmeticos">
+                                    Cosméticos
+                                </option>
+                                <option value="lingeries">Lingeries</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="form-status" class="form-control">
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Quantidade em Estoque</label>
+                            <input type="number" id="form-stock" class="form-control" placeholder="0" />
+                        </div>
+                        <div class="form-group" style="
+                                    display: flex;
+                                    align-items: center;
+                                    padding-top: 1.5rem;
+                                ">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="form-destaque" />
+                                Destacar este produto na página inicial
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <label for="product-modal-toggle" class="tab-btn cursor-pointer" style="
+                                border-radius: 9999px;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 38px;
+                                padding: 0 1.5rem;
+                            ">Cancelar</label>
+                    <button type="submit" class="btn rounded-full font-bold uppercase tracking-wider text-xs px-6 py-2.5">
+                        Salvar alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+
+</html>
